@@ -43,10 +43,10 @@ const SignUpForm = () => {
         email,
         password
       );
-
-
       await createUserDocumentFromAuth(user, { displayName });
+
       resetFormFields();
+
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         alert('Cannot create user, email already in use');
@@ -58,8 +58,8 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-    <h2>Don't have an account?</h2>
-    <span>Sign up with your email and password</span>
+      <h2>Don't have an account?</h2>
+      <span>Sign up with your email and password</span>
 
       <form onSubmit={handleSubmit}>
 

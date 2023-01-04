@@ -5,12 +5,7 @@ import Navigation from "./components/routes/navigation/navigation.component.jsx"
 import Home from "./components/routes/home/home.component";
 import Authentication from "./components/routes/authentication/authentication.component.jsx";
 
-const Shop = () => {
-
-  return (
-    <div>IT is a Home page</div>
-  )
-}
+import Shop from "./components/routes/shop/shop.component.jsx";
 
 const App = () => {
 
