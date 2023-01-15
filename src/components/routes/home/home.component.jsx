@@ -35,9 +35,6 @@ const Home = () => {
         <div>
             <Directory categories={categories} />
         </div>
-
-
-
     );
 }
 
