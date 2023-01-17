@@ -1,5 +1,8 @@
 import { createContext, useEffect, useReducer } from "react";
 
+import { createAction } from '../utils/reducer/reducer.utils';
+
+
 import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth
@@ -42,8 +45,8 @@ export const UserProvider = ({ children }) => {
   const setCurrentUser = (user) => {
     console.log("setCurrentUser");
     console.log("CURRENT_USER", user);
-    dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
 
+    dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
   }
 
   useEffect(() => {
