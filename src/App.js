@@ -27,6 +27,8 @@ const App = () => {
         createUserDocumentFromAuth(user);
       }
 
+      console.log("Set current user");
+
       dispatch(setCurrentUser(user));
     });
 
