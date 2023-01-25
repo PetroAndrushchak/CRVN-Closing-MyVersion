@@ -7,6 +7,10 @@ import Button from "../button/button.component";
 
 import { SignUpContainer } from './sign-up-form.styles';
 
+import { signUpStart } from '../../store/user/user.action';
+
+import { useDispatch } from 'react-redux';
+
 const defaultFormFields = {
   displayName: '',
   email: '',
@@ -30,6 +34,8 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   }
 
+  const dispatch = useDispatch();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -39,11 +45,14 @@ const SignUpForm = () => {
     }
 
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserDocumentFromAuth(user, { displayName });
+      dispatch(signUpStart(email, password, displayName));
+
+      // try {
+      //   const { user } = await createAuthUserWithEmailAndPassword(
+      //     email,
+      //     password
+      //   );
+      //   await createUserDocumentFromAuth(user, { displayName });
 
       resetFormFields();
 
